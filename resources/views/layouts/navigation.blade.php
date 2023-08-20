@@ -26,12 +26,7 @@
                     </x-nav-link>
 
                     <!-- Categories Dropdown -->
-                    <div
-                        @class([
-                            'hidden sm:flex sm:items-center sm:ml-6 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out',
-                            'border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' => (request()->routeIs('expense-categories.index') || request()->routeIs('income-categories.index'))
-                        ])
-                    >
+                    <x-custom.nav-dropdown-wrapper :active="(request()->routeIs('expense-categories.index') || request()->routeIs('income-categories.index'))">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -54,17 +49,12 @@
                                 </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
-                    </div>
+                    </x-custom.nav-dropdown-wrapper>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div 
-                @class([
-                    'hidden sm:flex sm:items-center sm:ml-6 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out',
-                    'border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' => request()->routeIs('profile.edit')
-                ])
-            >
+            <x-custom.nav-dropdown-wrapper :active="request()->routeIs('profile.edit')">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -95,7 +85,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-            </div>
+            </x-custom.nav-dropdown-wrapper>
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">

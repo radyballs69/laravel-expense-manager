@@ -24,6 +24,10 @@
                     <x-nav-link :href="route('incomes.index')" :active="request()->routeIs('incomes.index')">
                         {{ __('Incomes') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
+                        {{ __('Reports') }}
+                    </x-nav-link>
+
 
                     <!-- Categories Dropdown -->
                     <x-custom.nav-dropdown-wrapper :active="(request()->routeIs('expense-categories.index') || request()->routeIs('income-categories.index'))">
@@ -113,6 +117,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('incomes.index')" :active="request()->routeIs('incomes.index')">
                 {{ __('Incomes') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
+                {{ __('Reports') }}
             </x-responsive-nav-link>
 
             <!-- Responsive Settings Options -->

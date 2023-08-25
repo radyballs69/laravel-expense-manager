@@ -7,6 +7,7 @@ use App\Http\Controllers\Categories\ExpenseController as ExpenseCategoriesContro
 use App\Http\Controllers\Categories\IncomeController as IncomeCategoriesController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 
 /*
@@ -45,6 +46,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::resource('income-categories', IncomeCategoriesController::class);
     Route::resource('expenses', ExpenseController::class);
     Route::resource('incomes', IncomeController::class);
+    Route::resource('reports', ReportController::class)->only(['index']);
 });
 
 Route::middleware(HandlePrecognitiveRequests::class)->group(function () {

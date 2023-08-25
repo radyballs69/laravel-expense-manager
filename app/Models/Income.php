@@ -33,6 +33,11 @@ class Income extends Model
         return $this->belongsTo(IncomeCategory::class, 'income_category_id', 'id');
     }
 
+    public static function startedIncomeDate($user_id)
+    {
+        return static::selectRaw('YEAR(created_at) AS year')->where('user_id', $user_id)->oldest()->first();
+    }
+
     /**
      * Combine or explode entry date & time.
      */

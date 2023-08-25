@@ -8,6 +8,11 @@
             </tr>
         </thead>
         <tbody>{{ $body }}</tbody>
+        @if (isset($footer))
+        <tfoot class="py-2 font-medium text-gray-700">
+            {{ $footer }}
+        </tfoot>
+        @endif
     </table>
     @if($data)
         <div>

@@ -34,6 +34,11 @@ class Expense extends Model
         return $this->belongsTo(ExpenseCategory::class, 'expense_category_id', 'id');
     }
 
+    public static function startedExpenseDate($user_id)
+    {
+        return static::select('created_at')->where('user_id', $user_id)->oldest()->first();
+    }
+
     /**
      * Combine or explode entry date & time.
      */
